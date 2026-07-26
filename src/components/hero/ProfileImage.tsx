@@ -85,7 +85,8 @@ export default function ProfileImage({
             width={size}
             height={size}
             onError={() => setImageError(true)}
-            className="rounded-full object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+            style={{ objectFit: "cover", objectPosition: "top center" }}
+            className="rounded-full object-cover object-[top_center] w-full h-full transform group-hover:scale-105 transition-transform duration-500"
             priority
             unoptimized={photoSrc.startsWith("data:")}
           />
