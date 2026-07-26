@@ -1,153 +1,118 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
-import { portfolioContent } from "@/data/content";
+import { ArrowRight, Mail, Sparkles } from "lucide-react";
 import MagneticButton from "../ui/MagneticButton";
-import ProfileImage from "./ProfileImage";
-import HeroMobileFallback from "./HeroMobileFallback";
-
-// Dynamic import for R3F 3D Canvas with SSR fallback
-const Hero3DScene = dynamic(() => import("./Hero3DScene"), {
-  ssr: false,
-  loading: () => <HeroMobileFallback />,
-});
+import HeroProfileVisual from "./HeroProfileVisual";
+import { portfolioContent } from "@/data/content";
 
 export default function HeroSection() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const { name, headline, altHeadline, supportingLine } = portfolioContent.personal;
 
-  useEffect(() => {
-    setMounted(true);
-    const checkMobile = () => {
-      const touchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-      setIsMobile(window.innerWidth < 768 || touchDevice);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const titleWords = portfolioContent.personal.name.split(" ");
+  // Split headline for kinetic word-by-word reveal
+  const headlineWords = headline.split(" ");
 
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
-      {/* Background Sky-Blue Aurora Radial Blobs */}
-      <div className="aurora-blob w-[380px] h-[380px] sm:w-[520px] sm:h-[520px] bg-gradient-to-tr from-sky-300/40 via-sky-200/50 to-blue-200/30 top-1/4 left-[-100px]" />
-      <div className="aurora-blob w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] bg-gradient-to-br from-blue-300/40 to-sky-200/30 bottom-10 right-[-100px]" />
+    <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+      
+      {/* Background Aurora Mesh Blobs */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-sky-200/40 via-blue-100/30 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+      {/* Asymmetric 2-Column Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full relative z-10">
         
-        {/* Left Column - Content & Kinetic Typography */}
-        <div className="lg:col-span-7 flex flex-col items-start space-y-6 text-left">
+        {/* Left Column: Oversized Display Type & Kinetic Headline */}
+        <div className="lg:col-span-7 space-y-6 text-left">
           
-          {/* Header Row: Profile Photo + Status Badge */}
-          <div className="flex flex-wrap items-center gap-4">
-            {/* Profile Photo Component */}
-            <ProfileImage src={portfolioContent.personal.profilePhotoPath} size={72} />
-
-            <div className="flex flex-col space-y-2">
-              <span className="font-mono text-xs text-sky-700 tracking-widest uppercase bg-sky-100/90 px-3 py-1 rounded-full border border-sky-200 font-semibold self-start shadow-sm">
-                01 / HERO
-              </span>
-
-              {/* Status Badge with Animated Gradient Border */}
-              <div className="gradient-border-badge px-3.5 py-1 rounded-full bg-white/90 backdrop-blur-md flex items-center space-x-2 shadow-sm border border-sky-100">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                <span className="text-xs font-semibold text-slate-800">
-                  Available for Internship
-                </span>
-              </div>
-            </div>
-          </div>
+          {/* Status Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full glass-card border border-sky-200/80 shadow-sm bg-white/80 backdrop-blur-md"
+          >
+            <span className="font-mono text-xs text-sky-700 font-semibold tracking-wider uppercase">
+              01 / HERO
+            </span>
+            <span className="w-1 h-1 rounded-full bg-slate-300" />
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 text-white font-semibold flex items-center space-x-1.5 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+              <span>Available for Internship</span>
+            </span>
+          </motion.div>
 
           {/* Kinetic Headline Reveal */}
           <div className="space-y-2">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-              <span className="block">
-                {titleWords.map((word, i) => (
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.05] flex flex-wrap gap-x-3 gap-y-1">
+              {headlineWords.map((word, idx) => {
+                const isGradientWord =
+                  word.toLowerCase().includes("engineering") ||
+                  word.toLowerCase().includes("student") ||
+                  word.toLowerCase().includes("developer") ||
+                  word.toLowerCase().includes("aspiring");
+                return (
                   <motion.span
-                    key={i}
-                    initial={{ opacity: 0, y: 30 }}
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: i * 0.15 }}
-                    className="inline-block mr-3"
+                    transition={{ duration: 0.5, delay: idx * 0.08 }}
+                    className={isGradientWord ? "text-gradient font-black" : "text-slate-900"}
                   >
                     {word}
                   </motion.span>
-                ))}
-              </span>
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.35 }}
-                className="block text-gradient mt-1"
-              >
-                {portfolioContent.personal.headline}
-              </motion.span>
+                );
+              })}
             </h1>
 
-            {/* Secondary Headline Accent */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-base sm:text-lg font-mono text-sky-700 font-medium pt-1"
-            >
-              {portfolioContent.personal.altHeadline}
-            </motion.p>
+            <p className="text-base sm:text-xl font-medium font-mono text-sky-800 pt-1 flex items-center space-x-2">
+              <Sparkles className="w-4 h-4 text-sky-600 shrink-0" />
+              <span>{altHeadline}</span>
+            </p>
           </div>
 
-          {/* Supporting Bio Paragraph */}
+          {/* Supporting Line */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl font-normal"
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed font-normal"
           >
-            {portfolioContent.personal.supportingLine}
+            {supportingLine}
           </motion.p>
 
-          {/* CTAs Group */}
+          {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.75 }}
-            className="flex flex-wrap items-center gap-4 pt-2"
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="flex flex-wrap items-center gap-4 pt-4"
           >
-            {/* Primary Magnetic CTA */}
+            {/* Primary Gradient Magnetic Button */}
             <MagneticButton strength={0.4}>
               <a
                 href="#projects"
-                className="group relative inline-flex items-center space-x-3 px-7 py-3.5 rounded-full bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 text-white font-semibold text-sm sm:text-base shadow-[0_6px_25px_rgba(14,165,233,0.35)] hover:shadow-[0_10px_35px_rgba(14,165,233,0.5)] transition-all transform active:scale-95"
+                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 text-white font-semibold text-sm sm:text-base shadow-[0_6px_25px_rgba(14,165,233,0.35)] hover:shadow-[0_10px_35px_rgba(14,165,233,0.5)] transition-all transform active:scale-95"
               >
                 <span>View Projects</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4" />
               </a>
             </MagneticButton>
 
-            {/* Secondary Outline Glass CTA */}
-            <MagneticButton strength={0.25}>
-              <a
-                href="#contact"
-                className="relative inline-flex items-center space-x-2 px-6 py-3.5 rounded-full border border-slate-300 bg-white/80 backdrop-blur-md text-slate-800 font-semibold text-sm sm:text-base hover:bg-slate-100 hover:border-sky-400 transition-all active:scale-95 shadow-sm"
-              >
-                <Mail className="w-4 h-4 text-sky-600" />
-                <span>Contact Me</span>
-              </a>
-            </MagneticButton>
+            {/* Secondary Glass Outline Pill CTA */}
+            <a
+              href="#contact"
+              className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full glass-card border border-slate-300/80 hover:border-sky-400 text-slate-800 font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all hover:bg-sky-50/50 active:scale-95"
+            >
+              <Mail className="w-4 h-4 text-sky-600" />
+              <span>Contact Me</span>
+            </a>
           </motion.div>
 
         </div>
 
-        {/* Right Column - Interactive 3D Canvas / Mobile SVG Fallback */}
-        <div className="lg:col-span-5 flex items-center justify-center relative">
-          <div className="w-full max-w-lg glass-card rounded-3xl p-4 sm:p-6 border border-slate-200/80 relative overflow-hidden shadow-lg bg-white/80">
-            {mounted && (isMobile ? <HeroMobileFallback /> : <Hero3DScene />)}
-          </div>
+        {/* Right Column: Floating Parallax Profile Photo Visual */}
+        <div className="lg:col-span-5 flex items-center justify-center">
+          <HeroProfileVisual />
         </div>
 
       </div>
