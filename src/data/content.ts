@@ -145,11 +145,11 @@ export const portfolioContent = {
   education: [
     {
       id: "edu-1",
-      degree: "Bachelor of Technology (B.Tech) — Artificial Intelligence & Data Science",
+      degree: "Bachelor of Technology (B.Tech)",
       status: "3rd Year — Currently Enrolled",
       institution: "JP College of Engineering",
       location: "Tenkasi, Tamil Nadu",
-      period: "2023 – Present",
+      period: "2024 – Present",
       isCurrent: true,
       cgpaBranch: "Artificial Intelligence & Data Science (AI & DS)",
     },
