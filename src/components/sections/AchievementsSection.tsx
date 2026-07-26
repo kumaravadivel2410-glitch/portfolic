@@ -1,41 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Trophy, Code2, BookCheck, Zap } from "lucide-react";
+import { Trophy, BookCheck } from "lucide-react";
+import { portfolioContent } from "@/data/content";
 
 export default function AchievementsSection() {
-  const achievements = [
-    {
-      icon: Trophy,
-      title: "Coding Contests & Technical Events",
-      desc: "Actively participated in competitive programming contests and college technical symposiums to sharpen problem-solving under pressure.",
-      badge: "Competitive Coding",
-    },
-    {
-      icon: BookCheck,
-      title: "Self-Driven Learning Milestone",
-      desc: "Completed over 9 specialized online courses & certifications spanning Python, Artificial Intelligence, SQL, and Web Development ahead of curriculum schedules.",
-      badge: "Continuous Skill-Building",
-    },
-  ];
+  const achievements = portfolioContent.achievements;
+  const icons = [Trophy, BookCheck];
 
   return (
-    <section id="achievements" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="achievements" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="flex flex-col items-start space-y-3 mb-12">
         <div className="flex items-center space-x-2">
-          <span className="font-mono text-xs text-purple-400 tracking-widest uppercase bg-purple-500/10 px-2.5 py-1 rounded-md border border-purple-500/20">
+          <span className="font-mono text-xs text-sky-700 tracking-widest uppercase bg-sky-100/90 px-3 py-1 rounded-full border border-sky-200 font-semibold shadow-sm">
             07 / ACHIEVEMENTS
           </span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
           Milestones &amp; <span className="text-gradient">Recognitions</span>
         </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {achievements.map((item, idx) => {
-          const Icon = item.icon;
+          const Icon = icons[idx % icons.length];
           return (
             <motion.div
               key={idx}
@@ -43,33 +32,25 @@ export default function AchievementsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="glass-card rounded-3xl p-8 border border-white/10 relative overflow-hidden flex flex-col justify-between hover:border-purple-400/40 transition-all group"
+              className="glass-card rounded-3xl p-8 border border-slate-200/80 relative overflow-hidden flex flex-col justify-between hover:border-sky-300 transition-all group shadow-md bg-white/80"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="p-3.5 rounded-2xl bg-gradient-to-tr from-blue-600 to-purple-600 text-white shadow-lg">
+                  <div className="p-3.5 rounded-2xl bg-gradient-to-tr from-sky-400 to-blue-600 text-white shadow-md">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <span className="text-xs font-mono px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                  <span className="text-xs font-mono px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 border border-sky-200 font-semibold shadow-sm">
                     {item.badge}
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight group-hover:text-sky-600 transition-colors">
                   {item.title}
                 </h3>
 
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                   {item.desc}
                 </p>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-500">
-                <span>ACHIEVEMENT_LOG // 0{idx + 1}</span>
-                <span className="text-emerald-400 flex items-center space-x-1">
-                  <Zap className="w-3.5 h-3.5" />
-                  <span>VERIFIED</span>
-                </span>
               </div>
             </motion.div>
           );

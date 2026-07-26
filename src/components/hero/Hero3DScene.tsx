@@ -21,10 +21,10 @@ function FloatingShape() {
       <mesh ref={meshRef} scale={2.2}>
         <icosahedronGeometry args={[1, 1]} />
         <MeshDistortMaterial
-          color="#8B5CF6"
-          roughness={0.25}
-          metalness={0.8}
-          distort={0.3}
+          color="#0EA5E9"
+          roughness={0.2}
+          metalness={0.7}
+          distort={0.28}
           speed={2}
           wireframe
         />
@@ -41,9 +41,9 @@ export default function Hero3DScene() {
         style={{ background: "transparent" }}
         gl={{ antialias: true, alpha: true }}
       >
-        <ambientLight intensity={0.6} />
+        <ambientLight intensity={0.8} />
         <directionalLight position={[10, 10, 5]} intensity={1.5} color="#38BDF8" />
-        <pointLight position={[-10, -10, -10]} intensity={1} color="#8B5CF6" />
+        <pointLight position={[-10, -10, -10]} intensity={1} color="#0EA5E9" />
         <FloatingShape />
       </Canvas>
     </div>

@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08090C",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
 };
@@ -65,7 +65,7 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#08090C] text-[#F5F5F5] bg-noise relative">
+      <body className="min-h-full flex flex-col font-sans bg-white text-slate-900 bg-noise relative">
         <SmoothScroll>
           {/* Custom Desktop Glowing Cursor */}
           <CustomCursor />

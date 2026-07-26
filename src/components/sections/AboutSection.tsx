@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Cpu, Code, Rocket, MapPin } from "lucide-react";
+import { portfolioContent } from "@/data/content";
 
 export default function AboutSection() {
   const highlights = [
@@ -28,15 +29,15 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="about" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Header */}
       <div className="flex flex-col items-start space-y-3 mb-12">
         <div className="flex items-center space-x-2">
-          <span className="font-mono text-xs text-purple-400 tracking-widest uppercase bg-purple-500/10 px-2.5 py-1 rounded-md border border-purple-500/20">
+          <span className="font-mono text-xs text-sky-700 tracking-widest uppercase bg-sky-100/90 px-3 py-1 rounded-full border border-sky-200 font-semibold shadow-sm">
             02 / ABOUT
           </span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
           Passionate about <span className="text-gradient">software, AI, &amp; real-world impact</span>
         </h2>
       </div>
@@ -49,30 +50,28 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-7 glass-card rounded-3xl p-8 border border-white/10 flex flex-col justify-between relative overflow-hidden"
+          className="lg:col-span-7 glass-card rounded-3xl p-8 border border-slate-200/80 flex flex-col justify-between relative overflow-hidden shadow-lg bg-white/80"
         >
           <div className="space-y-6 relative z-10">
-            <div className="flex items-center space-x-3 text-cyan-400 font-mono text-sm">
-              <MapPin className="w-4 h-4" />
-              <span>Tenkasi, Tamil Nadu, India</span>
+            <div className="flex items-center space-x-3 text-sky-700 font-mono text-sm font-semibold">
+              <MapPin className="w-4 h-4 text-sky-600" />
+              <span>{portfolioContent.personal.location}, India</span>
             </div>
 
-            <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
-              <strong className="text-white font-semibold">Kumara Vadivel</strong> is a B.Tech engineering student at JP College of Engineering, Tenkasi, with a growing foundation in programming, data structures, databases, and applied AI.
-            </p>
-
-            <p className="text-slate-300 text-base leading-relaxed">
-              He enjoys building things that combine software with real-world usefulness — most recently a smart voice assistant that blends AI, live data, and device control.
-            </p>
-
-            <p className="text-slate-300 text-base leading-relaxed">
-              Currently sharpening skills across Python, web development, and data science through hands-on coursework and self-driven certifications, he&apos;s looking for an internship where he can apply what he&apos;s learned and keep learning by doing.
-            </p>
+            {portfolioContent.personal.bio.map((paragraph, idx) => (
+              <p key={idx} className="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
+                {paragraph}
+              </p>
+            ))}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-400">
-            <span>STATUS: ACTIVE_LEARNER</span>
-            <span className="text-cyan-400">B.TECH ENGR // 2ND YEAR</span>
+          <div className="mt-8 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-500">
+            <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-semibold">
+              Available for Internship
+            </span>
+            <span className="text-sky-700 font-semibold bg-sky-100 px-3 py-1 rounded-full border border-sky-200">
+              B.Tech Engineering — 2nd Year
+            </span>
           </div>
         </motion.div>
 
@@ -87,14 +86,14 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-card rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all flex items-start space-x-4"
+                className="glass-card rounded-2xl p-6 border border-slate-200/80 hover:border-sky-300 transition-all flex items-start space-x-4 shadow-sm bg-white/80"
               >
-                <div className="p-3 rounded-xl bg-gradient-to-tr from-blue-600/20 to-purple-600/20 text-cyan-400 border border-cyan-500/20 shrink-0">
+                <div className="p-3 rounded-xl bg-sky-100 text-sky-700 border border-sky-200 shrink-0">
                   <Icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white text-base mb-1">{item.title}</h3>
-                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="font-semibold text-slate-900 text-base mb-1">{item.title}</h3>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
             );

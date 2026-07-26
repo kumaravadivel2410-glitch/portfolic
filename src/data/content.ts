@@ -1,0 +1,241 @@
+/**
+ * CENTRALIZED PORTFOLIO CONTENT & CONFIGURATION
+ * 
+ * Edit any text, link, skill, project, or certificate in this file.
+ * All UI components automatically import and render from this central object.
+ */
+
+export interface ProjectItem {
+  id: string;
+  title: string;
+  valueProposition: string;
+  highlights: string[];
+  techStack: string[];
+  liveUrl?: string; // Set to URL string or leave blank for placeholder
+  repoUrl?: string; // Set to URL string or leave blank for placeholder
+  isFlagship?: boolean;
+}
+
+export interface CertificationItem {
+  title: string;
+  issuer: string;
+  date: string;
+  category: string;
+}
+
+export interface EducationItem {
+  degree: string;
+  status: string;
+  institution: string;
+  location: string;
+  period: string;
+  isCurrent?: boolean;
+  cgpaBranch?: string; // Leave blank or fill e.g. "Computer Science & Engineering | CGPA: 8.5"
+}
+
+export interface AchievementItem {
+  title: string;
+  desc: string;
+  badge: string;
+}
+
+export const portfolioContent = {
+  // Personal Info & Assets
+  personal: {
+    name: "Kumara Vadivel",
+    headline: "Engineering Student & Aspiring Developer",
+    altHeadline: "Building with Python, AI, and the Web",
+    supportingLine:
+      "A motivated engineering student who turns coursework into working projects — from AI-powered voice assistants to data-driven applications — and is looking for hands-on opportunities to grow as a developer.",
+    bio: [
+      "Kumara Vadivel is a B.Tech engineering student at JP College of Engineering, Tenkasi, with a growing foundation in programming, data structures, databases, and applied AI.",
+      "He enjoys building things that combine software with real-world usefulness — most recently a smart voice assistant that blends AI, live data, and device control.",
+      "Currently sharpening skills across Python, web development, and data science through hands-on coursework and self-driven certifications, he's looking for an internship where he can apply what he's learned and keep learning by doing.",
+    ],
+    location: "Tenkasi, Tamil Nadu",
+    email: "kumarlaksh2424@gmail.com",
+    phone: "+91 6383153692",
+    linkedIn: "https://www.linkedin.com/in/kumara-vadivel-926a19389",
+    gitHub: "", // Leave empty for placeholder badge, or set to e.g. "https://github.com/username"
+    
+    // File Paths for local static assets (placed in public/ directory)
+    profilePhotoPath: "/images/profile.jpg",
+    resumePdfPath: "/documents/resume.pdf",
+    certificatesPdfPath: "/documents/certificates.pdf",
+  },
+
+  // Ticker Keywords (Horizontal Marquee)
+  tickerKeywords: [
+    "Python",
+    "Artificial Intelligence",
+    "Web Development",
+    "Data Science & Analytics",
+    "MySQL & SQL",
+    "Smart Voice Assistants",
+    "Data Structures",
+    "Java & C Programming",
+  ],
+
+  // Skills Grouped by Category
+  skillsGrouped: [
+    {
+      title: "Programming Languages",
+      skills: [
+        { name: "Python", tag: "Primary" },
+        { name: "C Language", tag: "Core" },
+        { name: "Java (Basics)", tag: "Foundational" },
+      ],
+    },
+    {
+      title: "Web Technologies",
+      skills: [
+        { name: "HTML", tag: "Structure" },
+        { name: "CSS", tag: "Styling" },
+        { name: "JavaScript", tag: "Logic" },
+      ],
+    },
+    {
+      title: "Databases",
+      skills: [
+        { name: "MySQL", tag: "RDBMS" },
+        { name: "SQL", tag: "Queries" },
+      ],
+    },
+    {
+      title: "Tools & Ecosystem",
+      skills: [
+        { name: "VS Code", tag: "IDE" },
+        { name: "GitHub", tag: "Version Control" },
+      ],
+    },
+    {
+      title: "Core Concepts & Fundamentals",
+      skills: [
+        { name: "Data Structures", tag: "CS Core" },
+        { name: "DBMS", tag: "Data" },
+        { name: "AI Fundamentals", tag: "Applied AI" },
+        { name: "Data Science & Analytics", tag: "Analytics" },
+      ],
+    },
+  ],
+
+  // Featured Projects
+  projects: [
+    {
+      id: "voice-assistant",
+      title: "Smart Web-Based Voice Assistant",
+      valueProposition:
+        "A mobile-friendly, AI-powered voice assistant that responds, informs, and controls — all from the browser.",
+      highlights: [
+        "Built an AI-driven assistant brain with multi-voice support and wake-word detection",
+        "Integrated live data features including real-time temperature display and news updates",
+        "Added object detection and smart device-control capabilities",
+      ],
+      techStack: ["Python", "AI / Voice Processing", "HTML / CSS / JS"],
+      liveUrl: "", // Leave blank for placeholder
+      repoUrl: "", // Leave blank for placeholder
+      isFlagship: true,
+    },
+  ] as ProjectItem[],
+
+  // Academic Education (Experience section omitted per instructions)
+  education: [
+    {
+      degree: "Bachelor of Technology (B.Tech)",
+      status: "2nd Year — Currently Enrolled",
+      institution: "JP College of Engineering",
+      location: "Tenkasi, Tamil Nadu",
+      period: "2023 – Present",
+      isCurrent: true,
+      cgpaBranch: "", // Leave blank for "Needs input" placeholder or enter e.g. "CGPA: 8.2"
+    },
+    {
+      degree: "Higher Secondary Certificate (HSC)",
+      status: "Percentage: 65%",
+      institution: "RPHSS",
+      location: "Tenkasi, Tamil Nadu",
+      period: "2022",
+      isCurrent: false,
+    },
+    {
+      degree: "Secondary School Leaving Certificate (SSLC)",
+      status: "Percentage: 80%",
+      institution: "Pulari Matriculation School",
+      location: "Tenkasi, Tamil Nadu",
+      period: "2020",
+      isCurrent: false,
+    },
+  ] as EducationItem[],
+
+  // Certifications List (Text only, no images needed)
+  certifications: [
+    {
+      title: "3D Printing",
+      issuer: "HP LIFE / HP Foundation",
+      date: "May 2026",
+      category: "Emerging Tech",
+    },
+    {
+      title: "AI for Beginners",
+      issuer: "HP LIFE / HP Foundation",
+      date: "May 2026",
+      category: "Artificial Intelligence",
+    },
+    {
+      title: "Data Science & Analytics",
+      issuer: "HP LIFE / HP Foundation",
+      date: "May 2026",
+      category: "Data Science",
+    },
+    {
+      title: "C – Programming Course (Hands-On)",
+      issuer: "SkillRack",
+      date: "Sep 2025",
+      category: "Programming",
+    },
+    {
+      title: "SQL – Basics (Standard)",
+      issuer: "SkillRack",
+      date: "Sep 2025",
+      category: "Databases",
+    },
+    {
+      title: "Python 3.x – Programming Course (Hands-On)",
+      issuer: "SkillRack",
+      date: "Jul 2025",
+      category: "Programming",
+    },
+    {
+      title: "Java Basics – Programming Course (Hands-On)",
+      issuer: "SkillRack",
+      date: "Sep 2025",
+      category: "Programming",
+    },
+    {
+      title: "Python 101 for Data Science",
+      issuer: "IBM / Cognitive Class (cognitiveclass.ai)",
+      date: "Oct 2025",
+      category: "Data Science",
+    },
+    {
+      title: "Data Science Workshop (3 hrs)",
+      issuer: "Uptor / LMES",
+      date: "Oct 2025",
+      category: "Workshop",
+    },
+  ] as CertificationItem[],
+
+  // Achievements
+  achievements: [
+    {
+      title: "Coding Contests & Technical Events",
+      desc: "Actively participated in competitive programming contests and college technical events.",
+      badge: "Competitive Coding",
+    },
+    {
+      title: "Self-Driven Online Coursework",
+      desc: "Completed multiple self-driven online courses across Python, AI, and Web Development ahead of academic schedules.",
+      badge: "Continuous Skill-Building",
+    },
+  ] as AchievementItem[],
+};

@@ -19,7 +19,7 @@ export default function ParticleBackground() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // Particle Configuration
-    const particleCount = width < 768 ? 25 : 50;
+    const particleCount = width < 768 ? 25 : 45;
     interface Particle {
       x: number;
       y: number;
@@ -32,10 +32,10 @@ export default function ParticleBackground() {
     const particles: Particle[] = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
       radius: Math.random() * 1.5 + 0.8,
-      alpha: Math.random() * 0.4 + 0.1,
+      alpha: Math.random() * 0.4 + 0.15,
     }));
 
     const handleResize = () => {
@@ -49,18 +49,18 @@ export default function ParticleBackground() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw faint dot grid pattern
-      const gridSize = 40;
-      ctx.fillStyle = "rgba(255, 255, 255, 0.03)";
+      // Draw faint light-blue dot grid pattern
+      const gridSize = 44;
+      ctx.fillStyle = "rgba(56, 189, 248, 0.08)";
       for (let x = 0; x < width; x += gridSize) {
         for (let y = 0; y < height; y += gridSize) {
           ctx.beginPath();
-          ctx.arc(x, y, 0.8, 0, Math.PI * 2);
+          ctx.arc(x, y, 0.9, 0, Math.PI * 2);
           ctx.fill();
         }
       }
 
-      // Draw particles and faint connection lines
+      // Draw particles and faint sky-blue connection lines
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
@@ -76,7 +76,7 @@ export default function ParticleBackground() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(139, 92, 246, ${p.alpha})`;
+        ctx.fillStyle = `rgba(14, 165, 233, ${p.alpha})`;
         ctx.fill();
 
         // Connect nearby particles
@@ -90,7 +90,7 @@ export default function ParticleBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.08 * (1 - dist / 110)})`;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.12 * (1 - dist / 110)})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -111,7 +111,7 @@ export default function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 z-0 opacity-60"
+      className="pointer-events-none fixed inset-0 z-0 opacity-70"
       aria-hidden="true"
     />
   );

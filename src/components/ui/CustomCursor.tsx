@@ -60,9 +60,9 @@ export default function CustomCursor() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
-      {/* Outer Glowing Ring */}
+      {/* Outer Sky-Blue Glowing Ring */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full border border-blue-400/40 bg-purple-500/10 backdrop-blur-[1px]"
+        className="fixed top-0 left-0 rounded-full border border-sky-400/50 bg-sky-400/10 backdrop-blur-[1px]"
         animate={{
           x: mousePosition.x - (isHovered ? 28 : 16),
           y: mousePosition.y - (isHovered ? 28 : 16),
@@ -72,9 +72,9 @@ export default function CustomCursor() {
         }}
         transition={{ type: "spring", stiffness: 350, damping: 25, mass: 0.5 }}
       />
-      {/* Inner Precision Dot */}
+      {/* Inner Precision Blue Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_#22D3EE]"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-sky-500 shadow-[0_0_10px_#0EA5E9]"
         animate={{
           x: mousePosition.x - 4,
           y: mousePosition.y - 4,

@@ -1,5 +1,6 @@
 import Navbar from "@/components/ui/Navbar";
 import HeroSection from "@/components/hero/HeroSection";
+import DocumentsSection from "@/components/sections/DocumentsSection";
 import Marquee from "@/components/ui/Marquee";
 import AboutSection from "@/components/sections/AboutSection";
 import SkillsBento from "@/components/sections/SkillsBento";
@@ -12,12 +13,15 @@ import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#08090C] text-[#F5F5F5] selection:bg-purple-500/30 selection:text-cyan-300 overflow-x-hidden">
+    <main className="relative min-h-screen bg-white text-slate-900 selection:bg-sky-200 selection:text-sky-900 overflow-x-hidden">
       {/* Floating Glass Navigation Pill & Scroll Progress Bar */}
       <Navbar />
 
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Documents & Resume Glass Download Card */}
+      <DocumentsSection />
 
       {/* Horizontal Auto-Scrolling Ticker Strip */}
       <Marquee />
@@ -31,7 +35,7 @@ export default function Home() {
       {/* Projects Showcase Section */}
       <ProjectsSection />
 
-      {/* Academic Education Timeline Section (Experience omitted per instructions) */}
+      {/* Academic Education Timeline Section */}
       <EducationSection />
 
       {/* Certifications Bento Grid Section */}
