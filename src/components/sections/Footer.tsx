@@ -14,7 +14,7 @@ export default function Footer() {
         {/* Brand & Copyright */}
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-400 to-blue-600 flex items-center justify-center text-white font-bold text-xs shadow-md">
-            KV
+            <span className="font-extrabold text-white text-sm font-mono leading-none">K</span>
           </div>
           <div>
             <p className="text-slate-900 font-bold text-sm">

@@ -90,7 +90,7 @@ export default function HeroProfileVisual() {
           className="absolute -bottom-4 -left-4 sm:-left-8 z-20 px-3.5 py-1.5 rounded-full glass-card border border-sky-200 shadow-md text-[11px] font-mono text-slate-800 bg-white/90 backdrop-blur-md font-semibold flex items-center space-x-1.5"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-          <span>B.Tech CSE / AI</span>
+          <span>B.Tech 3rd Year — AI &amp; DS</span>
         </motion.div>
 
       </motion.div>

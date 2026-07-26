@@ -30,7 +30,9 @@ export default function DocumentsSection() {
         {/* Left Info */}
         <div className="flex items-center space-x-4">
           <div className="p-3.5 rounded-2xl bg-sky-100 text-sky-700 border border-sky-200 shrink-0">
-            <FileText className="w-6 h-6" />
+            <div className="w-6 h-6 flex items-center justify-center font-black text-sky-700 font-mono text-xl leading-none">
+              K
+            </div>
           </div>
           <div>
             <div className="flex items-center space-x-2">

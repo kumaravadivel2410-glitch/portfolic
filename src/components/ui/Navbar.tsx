@@ -56,7 +56,7 @@ export default function Navbar() {
             className="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-sky-400 rounded-full px-2 py-1"
           >
             <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-              <Code2 className="w-4 h-4" />
+              <span className="font-extrabold text-white text-sm font-mono leading-none">K</span>
             </div>
             <span className="font-bold text-sm md:text-base tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
               KV<span className="text-sky-500">.dev</span>

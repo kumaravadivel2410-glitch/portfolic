@@ -47,13 +47,13 @@ export const portfolioContent = {
   personal: {
     name: "Kumara Vadivel",
     headline: "Engineering Student & Aspiring Developer",
-    altHeadline: "Building with Python, AI, and the Web",
+    altHeadline: "Building with Python, Artificial Intelligence, & Data Science",
     supportingLine:
-      "A motivated engineering student who turns coursework into working projects — from AI-powered voice assistants to data-driven applications — and is looking for hands-on opportunities to grow as a developer.",
+      "A motivated 3rd Year engineering student specializing in Artificial Intelligence & Data Science at JP College of Engineering, Tenkasi — turning coursework into working applications.",
     bio: [
-      "Kumara Vadivel is a B.Tech engineering student at JP College of Engineering, Tenkasi, with a growing foundation in programming, data structures, databases, and applied AI.",
+      "Kumara Vadivel is a 3rd Year B.Tech Artificial Intelligence and Data Science engineering student at JP College of Engineering, Tenkasi, with a solid foundation in programming, data structures, databases, and applied AI & DS.",
       "He enjoys building things that combine software with real-world usefulness — most recently a smart voice assistant that blends AI, live data, and device control.",
-      "Currently sharpening skills across Python, web development, and data science through hands-on coursework and self-driven certifications, he's looking for an internship where he can apply what he's learned and keep learning by doing.",
+      "Currently sharpening skills across Python, web development, and data science through hands-on coursework and self-driven certifications, he's looking for an internship where he can apply Artificial Intelligence & Data Science to solve real problems.",
     ],
     location: "Tenkasi, Tamil Nadu",
     email: "kumarlaksh2424@gmail.com",
@@ -145,13 +145,13 @@ export const portfolioContent = {
   education: [
     {
       id: "edu-1",
-      degree: "Bachelor of Technology (B.Tech)",
-      status: "2nd Year — Currently Enrolled",
+      degree: "Bachelor of Technology (B.Tech) — Artificial Intelligence & Data Science",
+      status: "3rd Year — Currently Enrolled",
       institution: "JP College of Engineering",
       location: "Tenkasi, Tamil Nadu",
       period: "2023 – Present",
       isCurrent: true,
-      cgpaBranch: "", // Leave blank for "Needs input" placeholder or enter e.g. "CGPA: 8.2"
+      cgpaBranch: "Artificial Intelligence & Data Science (AI & DS)",
     },
     {
       id: "edu-2",

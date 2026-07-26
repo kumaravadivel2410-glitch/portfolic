@@ -9,7 +9,7 @@ export default function AboutSection() {
     {
       icon: GraduationCap,
       title: "Academic Track",
-      desc: "2nd Year B.Tech Student at JP College of Engineering, Tenkasi",
+      desc: "3rd Year B.Tech Student (AI & DS) at JP College of Engineering, Tenkasi",
     },
     {
       icon: Cpu,
@@ -70,7 +70,7 @@ export default function AboutSection() {
               Available for Internship
             </span>
             <span className="text-sky-700 font-semibold bg-sky-100 px-3 py-1 rounded-full border border-sky-200">
-              B.Tech Engineering — 2nd Year
+              B.Tech AI &amp; DS — 3rd Year
             </span>
           </div>
         </motion.div>
