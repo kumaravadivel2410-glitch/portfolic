@@ -17,13 +17,16 @@ export interface ProjectItem {
 }
 
 export interface CertificationItem {
+  id: string;
   title: string;
   issuer: string;
   date: string;
   category: string;
+  imagePath: string; // File path under public/ directory e.g. "/certificates/..."
 }
 
 export interface EducationItem {
+  id: string;
   degree: string;
   status: string;
   institution: string;
@@ -141,6 +144,7 @@ export const portfolioContent = {
   // Academic Education (Experience section omitted per instructions)
   education: [
     {
+      id: "edu-1",
       degree: "Bachelor of Technology (B.Tech)",
       status: "2nd Year — Currently Enrolled",
       institution: "JP College of Engineering",
@@ -150,6 +154,7 @@ export const portfolioContent = {
       cgpaBranch: "", // Leave blank for "Needs input" placeholder or enter e.g. "CGPA: 8.2"
     },
     {
+      id: "edu-2",
       degree: "Higher Secondary Certificate (HSC)",
       status: "Percentage: 65%",
       institution: "RPHSS",
@@ -158,6 +163,7 @@ export const portfolioContent = {
       isCurrent: false,
     },
     {
+      id: "edu-3",
       degree: "Secondary School Leaving Certificate (SSLC)",
       status: "Percentage: 80%",
       institution: "Pulari Matriculation School",
@@ -167,61 +173,79 @@ export const portfolioContent = {
     },
   ] as EducationItem[],
 
-  // Certifications List (Text only, no images needed)
+  // Certifications List (with image paths for gallery lightbox)
   certifications: [
     {
+      id: "cert-1",
       title: "3D Printing",
       issuer: "HP LIFE / HP Foundation",
       date: "May 2026",
       category: "Emerging Tech",
+      imagePath: "/certificates/3d-printing-hp-life.png",
     },
     {
+      id: "cert-2",
       title: "AI for Beginners",
       issuer: "HP LIFE / HP Foundation",
       date: "May 2026",
       category: "Artificial Intelligence",
+      imagePath: "/certificates/ai-for-beginners-hp-life.png",
     },
     {
+      id: "cert-3",
       title: "Data Science & Analytics",
       issuer: "HP LIFE / HP Foundation",
       date: "May 2026",
       category: "Data Science",
+      imagePath: "/certificates/data-science-analytics-hp-life.png",
     },
     {
+      id: "cert-4",
       title: "C – Programming Course (Hands-On)",
       issuer: "SkillRack",
       date: "Sep 2025",
       category: "Programming",
+      imagePath: "/certificates/c-programming-skillrack.jpg",
     },
     {
+      id: "cert-5",
       title: "SQL – Basics (Standard)",
       issuer: "SkillRack",
       date: "Sep 2025",
       category: "Databases",
+      imagePath: "/certificates/sql-basics-skillrack.jpg",
     },
     {
+      id: "cert-6",
       title: "Python 3.x – Programming Course (Hands-On)",
       issuer: "SkillRack",
       date: "Jul 2025",
       category: "Programming",
+      imagePath: "/certificates/python-3x-skillrack.jpg",
     },
     {
+      id: "cert-7",
       title: "Java Basics – Programming Course (Hands-On)",
       issuer: "SkillRack",
       date: "Sep 2025",
       category: "Programming",
+      imagePath: "/certificates/java-basics-skillrack.jpg",
     },
     {
+      id: "cert-8",
       title: "Python 101 for Data Science",
       issuer: "IBM / Cognitive Class (cognitiveclass.ai)",
       date: "Oct 2025",
       category: "Data Science",
+      imagePath: "/certificates/python-101-ibm.jpg",
     },
     {
+      id: "cert-9",
       title: "Data Science Workshop (3 hrs)",
       issuer: "Uptor / LMES",
       date: "Oct 2025",
       category: "Workshop",
+      imagePath: "/certificates/data-science-workshop-uptor.jpg",
     },
   ] as CertificationItem[],
 
