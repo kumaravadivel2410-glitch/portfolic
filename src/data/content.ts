@@ -59,7 +59,7 @@ export const portfolioContent = {
     email: "kumarlaksh2424@gmail.com",
     phone: "+91 6383153692",
     linkedIn: "https://www.linkedin.com/in/kumara-vadivel-926a19389",
-    gitHub: "", // Set to e.g. "https://github.com/username"
+    gitHub: "https://github.com/kumaravadivel2410-glitch",
     
     // File Paths for local static assets
     profilePhotoPath: "/images/profile.jpg",

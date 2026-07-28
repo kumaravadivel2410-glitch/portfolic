@@ -1,6 +1,8 @@
 "use client";
 
 import { Heart, ArrowUp } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
+import { portfolioContent } from "@/data/content";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -33,14 +35,39 @@ export default function Footer() {
           <span>using Next.js, R3F, &amp; Tailwind CSS</span>
         </div>
 
-        {/* Back to Top Button */}
-        <button
-          onClick={scrollToTop}
-          className="p-3 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-sky-400 shadow-sm group"
-          aria-label="Back to Top"
-        >
-          <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-        </button>
+        {/* Social Links & Back to Top */}
+        <div className="flex items-center space-x-3">
+          {portfolioContent.personal.gitHub && (
+            <a
+              href={portfolioContent.personal.gitHub}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-sky-400 shadow-sm"
+              aria-label="GitHub Profile"
+            >
+              <GithubIcon className="w-4 h-4" />
+            </a>
+          )}
+          {portfolioContent.personal.linkedIn && (
+            <a
+              href={portfolioContent.personal.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-sky-600 hover:text-sky-700 transition-all focus:outline-none focus:ring-2 focus:ring-sky-400 shadow-sm"
+              aria-label="LinkedIn Profile"
+            >
+              <LinkedinIcon className="w-4 h-4" />
+            </a>
+          )}
+
+          <button
+            onClick={scrollToTop}
+            className="p-2.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-sky-400 shadow-sm group"
+            aria-label="Back to Top"
+          >
+            <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+          </button>
+        </div>
 
       </div>
     </footer>

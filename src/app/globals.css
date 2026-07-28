@@ -55,12 +55,14 @@
 .text-gradient {
   background: linear-gradient(135deg, #0EA5E9 0%, #2563EB 60%, #1D4ED8 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-sky {
   background: linear-gradient(135deg, #38BDF8 0%, #0EA5E9 50%, #3B82F6 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -80,6 +82,7 @@
   background: linear-gradient(90deg, #38BDF8, #0EA5E9, #3B82F6, #38BDF8);
   background-size: 200% 100%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: borderRotate 4s linear infinite;

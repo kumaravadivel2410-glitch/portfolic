@@ -87,7 +87,6 @@ const liquidbuttonVariants = cva(
   }
 )
 
-
 function LiquidButton({
   className,
   variant,
@@ -176,7 +175,7 @@ function GlassFilter() {
   );
 }
 
-type ColorVariant =
+export type ColorVariant =
   | "default"
   | "primary"
   | "success"
@@ -184,7 +183,7 @@ type ColorVariant =
   | "gold"
   | "bronze";
  
-interface MetalButtonProps
+export interface MetalButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ColorVariant;
 }
@@ -314,9 +313,11 @@ const MetalButton = React.forwardRef<
 >(({ children, className, variant = "default", ...props }, ref) => {
   const [isPressed, setIsPressed] = React.useState(false);
   const [isHovered, setIsHovered] = React.useState(false);
-  const [isTouchDevice] = React.useState(
-    () => typeof window !== "undefined" && ("ontouchstart" in window || navigator.maxTouchPoints > 0)
-  );
+  const [isTouchDevice, setIsTouchDevice] = React.useState(false);
+ 
+  React.useEffect(() => {
+    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
+  }, []);
  
   const buttonText = children || "Button";
   const variants = metalButtonVariants(
