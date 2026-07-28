@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -37,7 +36,11 @@ export default function ProjectsSection() {
 
   const highlightIcons = [Mic, CloudSun, Eye];
 
-  const handleFieldChange = (id: string, field: keyof ProjectItem, value: any) => {
+  const handleFieldChange = <K extends keyof ProjectItem>(
+    id: string,
+    field: K,
+    value: ProjectItem[K]
+  ) => {
     setDraftData((prev) =>
       prev.map((item) => (item.id === id ? { ...item, [field]: value } : item))
     );
@@ -172,7 +175,7 @@ export default function ProjectsSection() {
       {/* Projects List Container */}
       <div className="space-y-8">
         {displayedProjects.map((project, pIdx) => {
-          const customImg = (project as any).customImage;
+          const customImg = (project as ProjectItem & { customImage?: string }).customImage;
           return (
             <motion.div
               key={project.id || pIdx}

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/sections/Footer";
 import { portfolioContent, EducationItem } from "@/data/content";
@@ -20,7 +19,11 @@ export default function EducationPage() {
     exportJson,
   } = useEditableSection<EducationItem>("portfolio_education_v2", portfolioContent.education);
 
-  const handleFieldChange = (id: string, field: keyof EducationItem, value: any) => {
+  const handleFieldChange = <K extends keyof EducationItem>(
+    id: string,
+    field: K,
+    value: EducationItem[K]
+  ) => {
     setDraftData((prev) =>
       prev.map((item) => (item.id === id ? { ...item, [field]: value } : item))
     );

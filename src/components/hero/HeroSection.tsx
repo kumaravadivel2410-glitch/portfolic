@@ -3,10 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, Sparkles, Code2, User } from "lucide-react";
-import MagneticButton from "../ui/MagneticButton";
 import HeroProfileVisual from "./HeroProfileVisual";
 import DevTerminal from "./DevTerminal";
-import { Button, LiquidButton, MetalButton } from "../ui/button";
+import { Button, LiquidButton } from "../ui/button";
 import { portfolioContent } from "@/data/content";
 
 export default function HeroSection() {

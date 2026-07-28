@@ -5,9 +5,8 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Eye, EyeOff, Send, Copy, Check } from "lucide-react";
 import { portfolioContent } from "@/data/content";
 import { GithubIcon, LinkedinIcon } from "../ui/SocialIcons";
-import MagneticButton from "../ui/MagneticButton";
 import PlaceholderBadge from "../ui/PlaceholderBadge";
-import { Button, LiquidButton, MetalButton } from "../ui/button";
+import { LiquidButton } from "../ui/button";
 
 export default function ContactSection() {
   const [showPhone, setShowPhone] = useState(false);

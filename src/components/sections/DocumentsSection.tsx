@@ -1,22 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { FileText, Download, Award, ExternalLink, Info, X } from "lucide-react";
+import { Download, Award } from "lucide-react";
 import { portfolioContent } from "@/data/content";
 
 export default function DocumentsSection() {
-  const [modalInfo, setModalInfo] = useState<{ title: string; text: string } | null>(null);
-
-  const handleDocumentClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    filePath: string,
-    docName: string
-  ) => {
-    // Check if user is clicking a placeholder link
-    // We attempt a HEAD request or let default browser action open the PDF
-    // If the file is not found or is a placeholder path, show informative modal
-  };
 
   return (
     <section className="relative py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Camera, RotateCcw } from "lucide-react";
 
@@ -17,24 +17,23 @@ export default function ProfileImage({
   size = 110,
   allowUpload = false,
 }: ProfileImageProps) {
-  const [photoSrc, setPhotoSrc] = useState<string>(src);
-  const [imageError, setImageError] = useState(false);
-  const [hasCustomPhoto, setHasCustomPhoto] = useState(false);
-
-  useEffect(() => {
+  const [photoSrc, setPhotoSrc] = useState<string>(() => {
+    if (typeof window === "undefined") return src;
     try {
-      const customPhoto = localStorage.getItem("portfolio_profile_photo");
-      if (customPhoto) {
-        setPhotoSrc(customPhoto);
-        setHasCustomPhoto(true);
-      } else {
-        setPhotoSrc(src);
-        setHasCustomPhoto(false);
-      }
-    } catch (e) {
-      console.warn("Failed to load profile photo from localStorage:", e);
+      return localStorage.getItem("portfolio_profile_photo") || src;
+    } catch {
+      return src;
     }
-  }, [src]);
+  });
+  const [imageError, setImageError] = useState(false);
+  const [hasCustomPhoto, setHasCustomPhoto] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      return !!localStorage.getItem("portfolio_profile_photo");
+    } catch {
+      return false;
+    }
+  });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

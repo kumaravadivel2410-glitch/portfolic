@@ -4,7 +4,7 @@ import Footer from "@/components/sections/Footer";
 import ProfileImage from "@/components/hero/ProfileImage";
 import { portfolioContent } from "@/data/content";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
-import { Mail, MapPin, Sparkles } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Profile | Kumara Vadivel",

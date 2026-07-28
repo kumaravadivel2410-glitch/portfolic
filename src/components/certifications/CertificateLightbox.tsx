@@ -20,12 +20,14 @@ export default function CertificateLightbox({
   onSelectIndex,
 }: CertificateLightboxProps) {
   const [imageError, setImageError] = useState(false);
+  const [prevIndex, setPrevIndex] = useState(selectedIndex);
+
+  if (prevIndex !== selectedIndex) {
+    setPrevIndex(selectedIndex);
+    setImageError(false);
+  }
 
   const activeCert = selectedIndex !== null ? certificates[selectedIndex] : null;
-
-  useEffect(() => {
-    setImageError(false);
-  }, [selectedIndex]);
 
   // Keyboard Navigation: Left/Right arrow keys & Escape key
   useEffect(() => {

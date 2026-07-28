@@ -1,26 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
+
+const emptySubscribe = () => () => {};
+
+function getSavedData<T>(storageKey: string, initialData: T[]): T[] {
+  if (typeof window === "undefined") return initialData;
+  try {
+    const saved = localStorage.getItem(storageKey);
+    return saved ? JSON.parse(saved) : initialData;
+  } catch {
+    return initialData;
+  }
+}
 
 export function useEditableSection<T>(storageKey: string, initialData: T[]) {
-  const [data, setData] = useState<T[]>(initialData);
-  const [draftData, setDraftData] = useState<T[]>(initialData);
+  const isClient = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+  const [data, setData] = useState<T[]>(() => getSavedData(storageKey, initialData));
+  const [draftData, setDraftData] = useState<T[]>(() => getSavedData(storageKey, initialData));
   const [isEditing, setIsEditing] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-    try {
-      const saved = localStorage.getItem(storageKey);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        setData(parsed);
-        setDraftData(parsed);
-      }
-    } catch (e) {
-      console.warn(`Failed to read ${storageKey} from localStorage:`, e);
-    }
-  }, [storageKey]);
 
   const startEdit = () => {
     setDraftData([...data]);

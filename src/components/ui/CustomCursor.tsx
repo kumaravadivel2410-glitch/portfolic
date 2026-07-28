@@ -7,21 +7,19 @@ export default function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
-
-  useEffect(() => {
-    // Disable on touch devices or reduced motion
+  const [isTouch] = useState(() => {
+    if (typeof window === "undefined") return false;
     const touchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    
-    if (touchDevice || reducedMotion) {
-      setIsTouch(true);
-      return;
-    }
+    return touchDevice || reducedMotion;
+  });
+
+  useEffect(() => {
+    if (isTouch) return;
 
     const onMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
     };
 
     const onMouseLeave = () => setIsVisible(false);
@@ -54,7 +52,7 @@ export default function CustomCursor() {
       document.body.removeEventListener("mouseleave", onMouseLeave);
       document.body.removeEventListener("mouseenter", onMouseEnter);
     };
-  }, [isVisible]);
+  }, [isTouch]);
 
   if (isTouch || !isVisible) return null;
 
