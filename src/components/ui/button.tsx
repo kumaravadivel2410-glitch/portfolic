@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
+import { Slot, Slottable } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -87,6 +87,7 @@ const liquidbuttonVariants = cva(
   }
 )
 
+
 function LiquidButton({
   className,
   variant,
@@ -119,9 +120,11 @@ function LiquidButton({
           style={{ backdropFilter: 'url("#container-glass")' }}
         />
 
-        <div className="pointer-events-none z-10 ">
-          {children}
-        </div>
+        <Slottable>
+          <div className="pointer-events-none z-10 flex items-center justify-center gap-2">
+            {children}
+          </div>
+        </Slottable>
         <GlassFilter />
       </Comp>
     </>
