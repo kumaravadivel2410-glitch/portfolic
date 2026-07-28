@@ -6,6 +6,7 @@ import { ArrowRight, Mail, Sparkles, Code2, User } from "lucide-react";
 import MagneticButton from "../ui/MagneticButton";
 import HeroProfileVisual from "./HeroProfileVisual";
 import DevTerminal from "./DevTerminal";
+import { Button, LiquidButton, MetalButton } from "../ui/button";
 import { portfolioContent } from "@/data/content";
 
 export default function HeroSection() {
@@ -90,25 +91,21 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex flex-wrap items-center gap-4 pt-4"
           >
-            {/* Primary Gradient Magnetic Button */}
-            <MagneticButton strength={0.4}>
-              <a
-                href="#projects"
-                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 text-white font-semibold text-sm sm:text-base shadow-[0_6px_25px_rgba(14,165,233,0.35)] hover:shadow-[0_10px_35px_rgba(14,165,233,0.5)] transition-all transform active:scale-95"
-              >
+            {/* Primary Liquid Button */}
+            <LiquidButton size="xl" asChild className="bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-lg shadow-sky-500/25">
+              <a href="#projects" className="inline-flex items-center gap-2">
                 <span>Explore Projects</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-            </MagneticButton>
+            </LiquidButton>
 
-            {/* Secondary Glass Outline Pill CTA */}
-            <a
-              href="#contact"
-              className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full glass-card border border-slate-300/80 hover:border-sky-400 text-slate-800 font-semibold text-sm sm:text-base shadow-sm hover:shadow-md transition-all hover:bg-sky-50/50 active:scale-95"
-            >
-              <Mail className="w-4 h-4 text-sky-600" />
-              <span>Contact Me</span>
-            </a>
+            {/* Secondary Cool Button */}
+            <Button variant="cool" size="lg" asChild className="h-12 px-6">
+              <a href="#contact">
+                <Mail className="w-4 h-4 text-sky-400" />
+                <span>Contact Me</span>
+              </a>
+            </Button>
           </motion.div>
 
         </div>

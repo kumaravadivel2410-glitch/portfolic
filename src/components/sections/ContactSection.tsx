@@ -7,6 +7,7 @@ import { portfolioContent } from "@/data/content";
 import { GithubIcon, LinkedinIcon } from "../ui/SocialIcons";
 import MagneticButton from "../ui/MagneticButton";
 import PlaceholderBadge from "../ui/PlaceholderBadge";
+import { Button, LiquidButton, MetalButton } from "../ui/button";
 
 export default function ContactSection() {
   const [showPhone, setShowPhone] = useState(false);
@@ -91,17 +92,14 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Magnetic CTA Email Link */}
+          {/* Direct CTA Email Link */}
           <div className="mt-8 pt-6 border-t border-slate-200 relative z-10 flex flex-wrap items-center gap-4">
-            <MagneticButton strength={0.4}>
-              <a
-                href={`mailto:${email}`}
-                className="inline-flex items-center space-x-3 px-8 py-4 rounded-full bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 text-white font-semibold text-base shadow-[0_6px_25px_rgba(14,165,233,0.35)] hover:shadow-[0_10px_35px_rgba(14,165,233,0.5)] transition-all transform active:scale-95"
-              >
+            <LiquidButton size="xl" asChild className="bg-sky-500 hover:bg-sky-600 text-white font-semibold shadow-lg shadow-sky-500/25">
+              <a href={`mailto:${email}`} className="inline-flex items-center gap-2">
                 <Send className="w-5 h-5" />
                 <span>Email Me Directly</span>
               </a>
-            </MagneticButton>
+            </LiquidButton>
           </div>
         </motion.div>
 

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Code2 } from "lucide-react";
 
+import { Button } from "./button";
+
 const navLinks = [
   { name: "About", href: "/#about" },
   { name: "Skills", href: "/#skills" },
@@ -78,12 +80,11 @@ export default function Navbar() {
 
           {/* Contact Quick Button (Desktop) */}
           <div className="hidden md:block">
-            <Link
-              href="/#contact"
-              className="px-4 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-sky-400 to-blue-600 text-white shadow-[0_4px_15px_rgba(14,165,233,0.3)] hover:shadow-[0_6px_20px_rgba(14,165,233,0.45)] hover:scale-105 transition-all"
-            >
-              Get in Touch
-            </Link>
+            <Button variant="cool" size="sm" asChild className="rounded-full">
+              <Link href="/#contact">
+                Get in Touch
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
