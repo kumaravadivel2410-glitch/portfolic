@@ -18,7 +18,7 @@ export default function EducationPage() {
     saveEdit,
     resetToDefault,
     exportJson,
-  } = useEditableSection<EducationItem>("portfolio_education_data", portfolioContent.education);
+  } = useEditableSection<EducationItem>("portfolio_education_v2", portfolioContent.education);
 
   const handleFieldChange = (id: string, field: keyof EducationItem, value: any) => {
     setDraftData((prev) =>

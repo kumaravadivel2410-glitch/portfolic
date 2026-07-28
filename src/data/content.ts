@@ -46,22 +46,22 @@ export const portfolioContent = {
   // Personal Info & Assets
   personal: {
     name: "Kumara Vadivel",
-    headline: "Engineering Student & Aspiring Developer",
-    altHeadline: "Building with Python, Artificial Intelligence, & Data Science",
+    headline: "Software Engineering Student & Full-Stack Developer",
+    altHeadline: "Crafting Clean Code, Data Structures, Scalable Web Systems & AI Solutions",
     supportingLine:
-      "A motivated engineering student who turns coursework into working projects — from AI-powered voice assistants to data-driven applications — and is looking for hands-on opportunities to grow as a developer.",
+      "A passionate 3rd-year Software Engineering student (2024) dedicated to building scalable web applications, robust software architectures, and intelligent tools with Python, Java, JavaScript, and modern web frameworks.",
     bio: [
-      "Kumara Vadivel is a B.Tech engineering student at JP College of Engineering, Tenkasi, with a growing foundation in programming, data structures, databases, and applied AI.",
-      "He enjoys building things that combine software with real-world usefulness — most recently a smart voice assistant that blends AI, live data, and device control.",
-      "Currently sharpening skills across Python, web development, and data science through hands-on coursework and self-driven certifications, he's looking for an internship where he can apply what he's learned and keep learning by doing.",
+      "Kumara Vadivel is a 3rd-year B.Tech engineering student at JP College of Engineering, Tenkasi, specializing in Software Engineering, Object-Oriented Programming, Data Structures & Algorithms, and modern full-stack web development.",
+      "He excels at transforming core computer science concepts into production-quality software — from AI-driven web engines and interactive task managers to clean database schemas.",
+      "Currently sharpening expertise across software design patterns, full-stack frameworks (React/Next.js), relational database optimization, and applied AI, he is seeking a Software Engineering Internship to deliver impact in a collaborative team.",
     ],
     location: "Tenkasi, Tamil Nadu",
     email: "kumarlaksh2424@gmail.com",
     phone: "+91 6383153692",
     linkedIn: "https://www.linkedin.com/in/kumara-vadivel-926a19389",
-    gitHub: "", // Leave empty for placeholder badge, or set to e.g. "https://github.com/username"
+    gitHub: "", // Set to e.g. "https://github.com/username"
     
-    // File Paths for local static assets (placed in public/ directory)
+    // File Paths for local static assets
     profilePhotoPath: "/images/profile.jpg",
     resumePdfPath: "/documents/resume.pdf",
     certificatesPdfPath: "/documents/certificates.pdf",
@@ -69,55 +69,62 @@ export const portfolioContent = {
 
   // Ticker Keywords (Horizontal Marquee)
   tickerKeywords: [
-    "Python",
-    "Artificial Intelligence",
-    "Web Development",
-    "Data Science & Analytics",
-    "MySQL & SQL",
-    "Smart Voice Assistants",
-    "Data Structures",
-    "Java & C Programming",
+    "Software Engineering",
+    "Data Structures & Algorithms",
+    "Full-Stack Web Development",
+    "Python & Java Programming",
+    "Object-Oriented Programming (OOP)",
+    "MySQL & Relational DBs",
+    "RESTful APIs & Next.js",
+    "Git & GitHub Version Control",
+    "Applied AI & Voice Engines",
   ],
 
-  // Skills Grouped by Category
+  // Skills Grouped by Category (Software Engineering Taxonomy)
   skillsGrouped: [
+    {
+      title: "Software Engineering & Core CS",
+      skills: [
+        { name: "Data Structures & Algorithms", tag: "CS Core" },
+        { name: "Object-Oriented Programming", tag: "OOP" },
+        { name: "System Architecture", tag: "Design" },
+        { name: "SDLC & Agile Workflow", tag: "Dev Process" },
+        { name: "Database Systems (DBMS)", tag: "Data" },
+      ],
+    },
     {
       title: "Programming Languages",
       skills: [
-        { name: "Python", tag: "Primary" },
-        { name: "C Language", tag: "Core" },
-        { name: "Java (Basics)", tag: "Foundational" },
+        { name: "Python", tag: "Primary / Advanced" },
+        { name: "C Language", tag: "Core Systems" },
+        { name: "Java", tag: "OOP / Enterprise" },
+        { name: "JavaScript / TypeScript", tag: "Full Stack" },
       ],
     },
     {
-      title: "Web Technologies",
+      title: "Web & Full-Stack Development",
       skills: [
-        { name: "HTML", tag: "Structure" },
-        { name: "CSS", tag: "Styling" },
-        { name: "JavaScript", tag: "Logic" },
+        { name: "React.js / Next.js", tag: "Frontend" },
+        { name: "HTML5 & CSS3", tag: "UI Layout" },
+        { name: "Tailwind CSS", tag: "Styling" },
+        { name: "RESTful APIs", tag: "Backend Fetch" },
       ],
     },
     {
-      title: "Databases",
+      title: "Databases & Storage",
       skills: [
         { name: "MySQL", tag: "RDBMS" },
-        { name: "SQL", tag: "Queries" },
+        { name: "SQL Queries & Joins", tag: "Data Optimization" },
+        { name: "Firebase / Firestore", tag: "Cloud DB" },
       ],
     },
     {
-      title: "Tools & Ecosystem",
+      title: "Engineering Tools & DevOps",
       skills: [
-        { name: "VS Code", tag: "IDE" },
-        { name: "GitHub", tag: "Version Control" },
-      ],
-    },
-    {
-      title: "Core Concepts & Fundamentals",
-      skills: [
-        { name: "Data Structures", tag: "CS Core" },
-        { name: "DBMS", tag: "Data" },
-        { name: "AI Fundamentals", tag: "Applied AI" },
-        { name: "Data Science & Analytics", tag: "Analytics" },
+        { name: "Git & GitHub", tag: "Version Control" },
+        { name: "VS Code & Debugging", tag: "IDE" },
+        { name: "Postman", tag: "API Testing" },
+        { name: "Problem Solving & Logic", tag: "Engineering Mindset" },
       ],
     },
   ],
@@ -126,58 +133,88 @@ export const portfolioContent = {
   projects: [
     {
       id: "voice-assistant",
-      title: "Smart Web-Based Voice Assistant",
+      title: "Smart Web-Based Voice & AI Engine",
       valueProposition:
-        "A mobile-friendly, AI-powered voice assistant that responds, informs, and controls — all from the browser.",
+        "A production-grade, AI-driven voice assistant architecture built with Python, speech recognition algorithms, real-time API integrations, and an interactive web UI.",
       highlights: [
-        "Built an AI-driven assistant brain with multi-voice support and wake-word detection",
-        "Integrated live data features including real-time temperature display and news updates",
-        "Added object detection and smart device-control capabilities",
+        "Designed an asynchronous NLP & voice-processing pipeline with multi-voice output and wake-word detection",
+        "Integrated live REST APIs for real-time temperature telemetry, news streaming, and task automation",
+        "Implemented computer vision object detection and modular device control handlers",
       ],
-      techStack: ["Python", "AI / Voice Processing", "HTML / CSS / JS"],
-      liveUrl: "", // Leave blank for placeholder
-      repoUrl: "", // Leave blank for placeholder
+      techStack: ["Python", "Speech Recognition", "REST APIs", "JavaScript", "HTML5 / CSS3"],
+      liveUrl: "",
+      repoUrl: "",
       isFlagship: true,
+    },
+    {
+      id: "developer-workspace",
+      title: "Full-Stack Software Engineering Task Manager",
+      valueProposition:
+        "An interactive workspace dashboard built for developers to structure code snippets, track algorithm complexity, and manage project workflows.",
+      highlights: [
+        "Engineered responsive UI using React, TypeScript, and modern glassmorphism design tokens",
+        "Implemented structured state persistence with clean data models and search capabilities",
+        "Built modular task breakdown components with real-time progress analytics",
+      ],
+      techStack: ["TypeScript", "React / Next.js", "Tailwind CSS", "Data Structures"],
+      liveUrl: "",
+      repoUrl: "",
+      isFlagship: false,
+    },
+    {
+      id: "sql-analytics-hub",
+      title: "Relational SQL Analytics & Query Utility",
+      valueProposition:
+        "A database engineering utility for executing, visualizing, and optimizing relational SQL queries on large datasets.",
+      highlights: [
+        "Built normalized MySQL relational schemas and query join algorithms",
+        "Created visual data analytics reports using Python data science libraries",
+        "Applied automated data validation pipelines to ensure database integrity",
+      ],
+      techStack: ["Python", "MySQL", "SQL Queries", "Pandas"],
+      liveUrl: "",
+      repoUrl: "",
+      isFlagship: false,
     },
   ] as ProjectItem[],
 
-  // Academic Education (Experience section omitted per instructions)
+  // Academic Education (Updated EXACTLY per instruction: College 3rd year 2024, HSC 2024, Primary school 2021)
   education: [
     {
       id: "edu-1",
       degree: "Bachelor of Technology (B.Tech)",
-      status: "2nd Year — Currently Enrolled",
+      status: "3rd Year — Currently Enrolled (2024)",
       institution: "JP College of Engineering",
       location: "Tenkasi, Tamil Nadu",
-      period: "2023 – Present",
+      period: "2024 – Present (3rd Year)",
       isCurrent: true,
-      cgpaBranch: "[ Needs input: CGPA & Branch / Specialization ]",
+      cgpaBranch: "Computer Science & Software Engineering",
     },
     {
       id: "edu-2",
       degree: "Higher Secondary Certificate (HSC)",
-      status: "Percentage: 65%",
-      institution: "RPHSS",
+      status: "Passed with 65%",
+      institution: "RPHSS (Ramkrishna Paramahamsa Higher Secondary School)",
       location: "Tenkasi, Tamil Nadu",
-      period: "2022",
+      period: "2024",
       isCurrent: false,
     },
     {
       id: "edu-3",
-      degree: "Secondary School Leaving Certificate (SSLC)",
-      status: "Percentage: 80%",
+      degree: "Secondary School Leaving Certificate (SSLC) / Primary Schooling",
+      status: "Passed with 80%",
       institution: "Pulari Matriculation School",
       location: "Tenkasi, Tamil Nadu",
-      period: "2020",
+      period: "2021",
       isCurrent: false,
     },
   ] as EducationItem[],
 
-  // Certifications List (with image paths for gallery lightbox)
+  // Certifications List
   certifications: [
     {
       id: "cert-1",
-      title: "3D Printing",
+      title: "3D Printing & Additive Manufacturing",
       issuer: "HP LIFE / HP Foundation",
       date: "May 2026",
       category: "Emerging Tech",
@@ -185,7 +222,7 @@ export const portfolioContent = {
     },
     {
       id: "cert-2",
-      title: "AI for Beginners",
+      title: "AI & Machine Learning Fundamentals",
       issuer: "HP LIFE / HP Foundation",
       date: "May 2026",
       category: "Artificial Intelligence",
@@ -193,7 +230,7 @@ export const portfolioContent = {
     },
     {
       id: "cert-3",
-      title: "Data Science & Analytics",
+      title: "Data Science & Relational Analytics",
       issuer: "HP LIFE / HP Foundation",
       date: "May 2026",
       category: "Data Science",
@@ -201,7 +238,7 @@ export const portfolioContent = {
     },
     {
       id: "cert-4",
-      title: "C – Programming Course (Hands-On)",
+      title: "C – Systems & Core Programming",
       issuer: "SkillRack",
       date: "Sep 2025",
       category: "Programming",
@@ -209,7 +246,7 @@ export const portfolioContent = {
     },
     {
       id: "cert-5",
-      title: "SQL – Basics (Standard)",
+      title: "SQL – Database Queries & Optimization",
       issuer: "SkillRack",
       date: "Sep 2025",
       category: "Databases",
@@ -217,7 +254,7 @@ export const portfolioContent = {
     },
     {
       id: "cert-6",
-      title: "Python 3.x – Programming Course (Hands-On)",
+      title: "Python 3.x – Advanced Hands-On Course",
       issuer: "SkillRack",
       date: "Jul 2025",
       category: "Programming",
@@ -225,7 +262,7 @@ export const portfolioContent = {
     },
     {
       id: "cert-7",
-      title: "Java Basics – Programming Course (Hands-On)",
+      title: "Java Basics & Object-Oriented Principles",
       issuer: "SkillRack",
       date: "Sep 2025",
       category: "Programming",
@@ -233,15 +270,15 @@ export const portfolioContent = {
     },
     {
       id: "cert-8",
-      title: "Python 101 for Data Science",
-      issuer: "IBM / Cognitive Class (cognitiveclass.ai)",
+      title: "Python 101 for Data Science & AI",
+      issuer: "IBM / Cognitive Class",
       date: "Oct 2025",
       category: "Data Science",
       imagePath: "/certificates/python-101-ibm.jpg",
     },
     {
       id: "cert-9",
-      title: "Data Science Workshop (3 hrs)",
+      title: "Data Engineering & Analytics Workshop",
       issuer: "Uptor / LMES",
       date: "Oct 2025",
       category: "Workshop",
@@ -252,13 +289,13 @@ export const portfolioContent = {
   // Achievements
   achievements: [
     {
-      title: "Coding Contests & Technical Events",
-      desc: "Actively participated in competitive programming contests and college technical events.",
+      title: "Competitive Programming & Hackathons",
+      desc: "Active participant in algorithms contests, problem-solving challenges, and college software hackathons.",
       badge: "Competitive Coding",
     },
     {
-      title: "Self-Driven Online Coursework",
-      desc: "Completed multiple self-driven online courses across Python, AI, and Web Development ahead of academic schedules.",
+      title: "Self-Driven Software Engineering Mastery",
+      desc: "Completed 9+ professional certifications across Python, Java, SQL, AI, and Data Science ahead of university curriculum.",
       badge: "Continuous Skill-Building",
     },
   ] as AchievementItem[],

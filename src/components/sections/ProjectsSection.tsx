@@ -33,7 +33,7 @@ export default function ProjectsSection() {
     saveEdit,
     resetToDefault,
     exportJson,
-  } = useEditableSection<ProjectItem>("portfolio_projects_data", portfolioContent.projects);
+  } = useEditableSection<ProjectItem>("portfolio_projects_v2", portfolioContent.projects);
 
   const highlightIcons = [Mic, CloudSun, Eye];
 

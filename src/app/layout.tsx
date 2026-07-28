@@ -18,34 +18,35 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kumara Vadivel | Engineering Student & Developer Portfolio",
+  title: "Kumara Vadivel | Software Engineering Student & Full-Stack Developer",
   description:
-    "Kumara Vadivel is a B.Tech engineering student at JP College of Engineering, Tenkasi, building Python, AI, and web applications. Open for internship opportunities.",
+    "Kumara Vadivel is a 3rd-year B.Tech Software Engineering student at JP College of Engineering, Tenkasi (2024), specializing in Python, Java, Data Structures, Web Systems, and AI.",
   keywords: [
     "Kumara Vadivel",
-    "Developer Portfolio",
-    "Engineering Student",
+    "Software Engineering Student",
+    "Full-Stack Developer",
     "Tenkasi",
     "JP College of Engineering",
     "Python Developer",
+    "Data Structures & Algorithms",
     "AI Voice Assistant",
-    "Web Developer",
-    "Data Science",
+    "Next.js Developer",
+    "MySQL Databases",
   ],
   authors: [{ name: "Kumara Vadivel" }],
   openGraph: {
-    title: "Kumara Vadivel | Engineering Student & Developer Portfolio",
+    title: "Kumara Vadivel | Software Engineering Student Portfolio",
     description:
-      "A motivated engineering student building smart AI voice assistants, web apps, and data-driven solutions.",
+      "A 3rd-year Software Engineering student building scalable web systems, clean algorithms, and AI voice engines.",
     type: "website",
     locale: "en_US",
-    siteName: "Kumara Vadivel Portfolio",
+    siteName: "Kumara Vadivel Software Engineering Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kumara Vadivel | Engineering Student & Developer Portfolio",
+    title: "Kumara Vadivel | Software Engineering Student Portfolio",
     description:
-      "Engineering student turning coursework into practical software & AI voice projects.",
+      "3rd-year Software Engineering student specializing in Full-Stack Web Development, Algorithms, and AI.",
   },
 };
 

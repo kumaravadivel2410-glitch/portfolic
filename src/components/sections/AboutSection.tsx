@@ -8,23 +8,23 @@ export default function AboutSection() {
   const highlights = [
     {
       icon: GraduationCap,
-      title: "Academic Track",
-      desc: "3rd Year B.Tech Student (AI & DS) at JP College of Engineering, Tenkasi",
+      title: "Academic Track (3rd Year 2024)",
+      desc: "3rd Year B.Tech Student in Software Engineering & Computer Science at JP College of Engineering, Tenkasi",
     },
     {
       icon: Cpu,
-      title: "Applied AI & Voice Tech",
-      desc: "Building intelligent voice assistants combining live APIs & AI models",
+      title: "Full-Stack Software Architecture",
+      desc: "Designing clean codebases, web systems, REST APIs & AI voice assistant engines",
     },
     {
       icon: Code,
-      title: "Full-Spectrum Foundations",
-      desc: "Strong focus on Python, Web Stack, MySQL databases, and Data Structures",
+      title: "Core CS & Algorithms",
+      desc: "Strong mastery of Data Structures, OOP principles, Python, Java, C, and MySQL databases",
     },
     {
       icon: Rocket,
       title: "Internship Ready",
-      desc: "Seeking hands-on engineering opportunities to deliver real-world value",
+      desc: "Seeking hands-on software engineering opportunities to build production-grade features",
     },
   ];
 
@@ -38,7 +38,7 @@ export default function AboutSection() {
           </span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-          Passionate about <span className="text-gradient">software, AI, &amp; real-world impact</span>
+          Passionate about <span className="text-gradient">software engineering &amp; real-world systems</span>
         </h2>
       </div>
 
@@ -67,10 +67,10 @@ export default function AboutSection() {
 
           <div className="mt-8 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-500">
             <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-semibold">
-              Available for Internship
+              Available for Software Engineering Internships
             </span>
             <span className="text-sky-700 font-semibold bg-sky-100 px-3 py-1 rounded-full border border-sky-200">
-              B.Tech AI &amp; DS — 3rd Year
+              B.Tech SWE — 3rd Year (2024)
             </span>
           </div>
         </motion.div>

@@ -1,13 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Mail, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Mail, Sparkles, Code2, User } from "lucide-react";
 import MagneticButton from "../ui/MagneticButton";
 import HeroProfileVisual from "./HeroProfileVisual";
+import DevTerminal from "./DevTerminal";
 import { portfolioContent } from "@/data/content";
 
 export default function HeroSection() {
-  const { name, headline, altHeadline, supportingLine } = portfolioContent.personal;
+  const { headline, altHeadline, supportingLine } = portfolioContent.personal;
+  const [visualMode, setVisualMode] = useState<"terminal" | "photo">("terminal");
 
   // Split headline for kinetic word-by-word reveal
   const headlineWords = headline.split(" ");
@@ -29,15 +32,15 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full glass-card border border-sky-200/80 shadow-sm bg-white/80 backdrop-blur-md"
+            className="inline-flex flex-wrap items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-sky-200/80 shadow-sm bg-white/80 backdrop-blur-md"
           >
             <span className="font-mono text-xs text-sky-700 font-semibold tracking-wider uppercase">
-              01 / HERO
+              01 / SOFTWARE ENGINEER
             </span>
-            <span className="w-1 h-1 rounded-full bg-slate-300" />
+            <span className="w-1 h-1 rounded-full bg-slate-300 hidden sm:inline" />
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 text-white font-semibold flex items-center space-x-1.5 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-              <span>Available for Internship</span>
+              <span>3rd Year (2024) • Internship Ready</span>
             </span>
           </motion.div>
 
@@ -46,10 +49,10 @@ export default function HeroSection() {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.05] flex flex-wrap gap-x-3 gap-y-1">
               {headlineWords.map((word, idx) => {
                 const isGradientWord =
+                  word.toLowerCase().includes("software") ||
                   word.toLowerCase().includes("engineering") ||
-                  word.toLowerCase().includes("student") ||
-                  word.toLowerCase().includes("developer") ||
-                  word.toLowerCase().includes("aspiring");
+                  word.toLowerCase().includes("full-stack") ||
+                  word.toLowerCase().includes("developer");
                 return (
                   <motion.span
                     key={idx}
@@ -93,7 +96,7 @@ export default function HeroSection() {
                 href="#projects"
                 className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 text-white font-semibold text-sm sm:text-base shadow-[0_6px_25px_rgba(14,165,233,0.35)] hover:shadow-[0_10px_35px_rgba(14,165,233,0.5)] transition-all transform active:scale-95"
               >
-                <span>View Projects</span>
+                <span>Explore Projects</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
             </MagneticButton>
@@ -110,9 +113,63 @@ export default function HeroSection() {
 
         </div>
 
-        {/* Right Column: Floating Parallax Profile Photo Visual */}
-        <div className="lg:col-span-5 flex items-center justify-center">
-          <HeroProfileVisual />
+        {/* Right Column: Interactive Visual Switcher (IDE Terminal vs Profile Photo) */}
+        <div className="lg:col-span-5 flex flex-col items-center justify-center space-y-4">
+          
+          {/* Mode Switcher Pill */}
+          <div className="inline-flex items-center p-1 rounded-full bg-slate-100 border border-slate-200 shadow-inner">
+            <button
+              onClick={() => setVisualMode("terminal")}
+              className={`px-4 py-1.5 rounded-full text-xs font-mono font-semibold flex items-center space-x-1.5 transition-all cursor-pointer ${
+                visualMode === "terminal"
+                  ? "bg-slate-900 text-white shadow-md"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Code2 className="w-3.5 h-3.5 text-sky-400" />
+              <span>Interactive IDE</span>
+            </button>
+
+            <button
+              onClick={() => setVisualMode("photo")}
+              className={`px-4 py-1.5 rounded-full text-xs font-mono font-semibold flex items-center space-x-1.5 transition-all cursor-pointer ${
+                visualMode === "photo"
+                  ? "bg-sky-500 text-white shadow-md"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <User className="w-3.5 h-3.5" />
+              <span>Profile Card</span>
+            </button>
+          </div>
+
+          {/* Interactive Screen View */}
+          <div className="w-full">
+            <AnimatePresence mode="wait">
+              {visualMode === "terminal" ? (
+                <motion.div
+                  key="terminal"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <DevTerminal />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="photo"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <HeroProfileVisual />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
         </div>
 
       </div>
